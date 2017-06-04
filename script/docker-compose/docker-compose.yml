@@ -1,0 +1,13 @@
+invitesapp:
+  extends:
+    file: base-compose.yml
+    service: invites
+  environment:
+     RAILS_ENV: development
+  ports:
+    - "4000:80"
+  volumes:
+  - /runtime/invite/app_logs:/usr/src/app/log
+  - /etc/localtime:/etc/localtime:ro
+  - /home/infibeam/Angupriya/invites:/usr/src/app
+  command: /usr/src/app/script/supervisor_app.sh
